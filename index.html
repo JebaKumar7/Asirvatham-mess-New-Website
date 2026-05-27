@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Airvatham Mess</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #061b16;
+      overflow-x: hidden;
+      color: white;
+    }
+
+    /* Navbar */
+
+    nav {
+      width: 100%;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffe600;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ffe600;
+      }
+
+      to {
+        text-shadow: 0 0 30px #ff9800;
+      }
+    }
+
+    .menu-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .menu-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.4s;
+    }
+
+    .menu-links a:hover {
+      color: #ffe600;
+      transform: translateY(-3px);
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('chappathi_bg.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 20px;
+      position: relative;
+    }
+
+    .hero-content h1 {
+      font-size: 80px;
+      color: #ffe600;
+      margin-bottom: 20px;
+      animation: zoomIn 1.5s ease;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .hero-content p {
+      font-size: 22px;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 16px 40px;
+      background: #ffe600;
+      color: black;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.4s;
+      box-shadow: 0 10px 30px rgba(255, 230, 0, 0.4);
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      background: #ff9800;
+      color: white;
+    }
+
+    /* Menu Section */
+
+    .menu-section {
+      padding: 100px 8%;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 55px;
+      color: #ffe600;
+      margin-bottom: 70px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+
+    .card {
+      background: #0e2d27;
+      border-radius: 30px;
+      overflow: hidden;
+      transition: 0.5s;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 20px 50px rgba(255, 230, 0, 0.3);
+    }
+
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    .content {
+      padding: 30px;
+    }
+
+    .content h2 {
+      color: #ffe600;
+      margin-bottom: 20px;
+      font-size: 35px;
+    }
+
+    .food {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+      font-size: 18px;
+    }
+
+    .food:hover {
+      color: #ffe600;
+      transform: translateX(5px);
+      transition: 0.4s;
+    }
+
+    /* Chef */
+
+    .chef-section {
+      padding: 100px 8%;
+      text-align: center;
+    }
+
+    .chef-logo {
+      font-size: 120px;
+      animation: rotateChef 8s linear infinite;
+    }
+
+    @keyframes rotateChef {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .chef-section h2 {
+      font-size: 50px;
+      color: #ffe600;
+      margin-top: 20px;
+    }
+
+    /* Footer */
+
+    footer {
+      background: black;
+      padding: 50px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    footer h3 {
+      color: #ffe600;
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      opacity: 0.8;
+      line-height: 1.8;
+    }
+
+    /* Responsive */
+
+    @media(max-width:768px) {
+
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .hero-content h1 {
+        font-size: 45px;
+      }
+
+      .hero-content p {
+        font-size: 17px;
+      }
+
+      .title {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+
+  <nav>
+
+    <div class="logo">
+      👨‍🍳 <span>ஆசீர்வாதம் மெஸ்</span>
+    </div>
+
+    <div class="menu-links">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#chef">Chef</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+  </nav>
+
+  <!-- Hero -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>🍽️ ஆசீர்வாதம் மெஸ் 🍽️</h1>
+
+      <p>
+        Fresh Homemade Traditional Foods with Amazing Taste and
+        Quality Service for Breakfast, Lunch and Dinner.
+        <br>
+        புதிய homemade உணவு, அற்புத சுவை மற்றும் சிறந்த முறையில் வீடு தேடி வரும் Breakfast, Lunch, Dinner-க்கு.
+      </p>
+
+      <a href="#menu" class="btn">View Menu</a>
+
+    </div>
+
+  </section>
+
+  <!-- Menu -->
+
+  <section class="menu-section" id="menu">
+
+    <h1 class="title">Daliy's Special Menu</h1>
+
+    <div class="cards">
+
+      <!-- Morning -->
+
+      <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=1200">
+
+        <div class="content">
+
+          <h2>☀️ Morning</h2>
+
+          <div class="food">
+            <span>Idly (இட்லி)</span>
+            <span>🥥</span>
+          </div>
+
+          <div class="food">
+            <span>Poori (பூரி)</span>
+            <span>🔥</span>
+          </div>
+
+          <div class="food">
+            <span>Pongal (பொங்கல்)</span>
+            <span>🍛</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Afternoon -->
+
+      <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=1200">
+
+        <div class="content">
+
+          <h2>🍗 Afternoon</h2>
+
+          <div class="food">
+            <span>Meals With Chicken</span>
+            <span>🍗</span>
+          </div>
+
+          <div class="food">
+            <span>Veg Meals (சைவ உணவு)</span>
+            <span>🥗</span>
+          </div>
+
+          <div class="food">
+            <span>Chicken Kolambu (கறி குழம்பு) Weekly Once</span>
+            <span>🔥</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Dinner -->
+
+      <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=1200">
+
+        <div class="content">
+
+          <h2>🌙 Dinner</h2>
+
+          <div class="food">
+            <span>Chappathi (சப்பாத்தி)</span>
+            <span>🥘</span>
+          </div>
+
+          <div class="food">
+            <span>Iddiyappam (இடியப்பம்)</span>
+            <span>🍜</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Chef -->
+
+  <section class="chef-section" id="chef">
+
+    <div class="chef-logo">
+      👨‍🍳
+    </div>
+
+    <h2>Master Chef Special Taste</h2>
+
+    <p style="margin-top:20px;font-size:20px;line-height:1.8;">
+      Authentic Homemade South Indian Foods with Traditional Flavor.
+      <br>
+      சுயகால இந்திய உணவு, பாரம்பரிய சுவை
+    </p>
+
+  </section>
+
+  <!-- Footer -->
+
+  <footer id="contact">
+
+    <h3>Airvatham Mess</h3>
+
+    <p>
+      📍 Tirunelveli, Tamil Nadu <br>
+      📞 9788122559, 7538872559 <br>
+      🍽️ Breakfast | Lunch | Dinner
+
+    </p>
+
+  </footer>
+
+</body>
+
+</html>
